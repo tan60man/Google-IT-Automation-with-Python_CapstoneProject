@@ -15,7 +15,7 @@ def dict_files(dir):
     '''Get list of files in dir'''
     files = file.get_filelist(dir)
     for f in files:
-        with open(os.path.join(DIR,f), 'rb') as content:
+        with open(os.path.join(dir,f), 'r') as content:
             '''Extract individual line'''
             lines = content.readlines()
             '''Remove lbs in weight'''
@@ -32,7 +32,8 @@ def dict_files(dir):
 '''Post data to URL'''
 def post_description(url,data):
     r =requests.post(url,data)
-    return r.status_code '''Ensure that it returns status code 2xx'''
+    '''Ensure that it returns status code 2xx'''
+    return r.status_code 
     
 if __name__ == "__main__":
     for data in dict_files(DIR):

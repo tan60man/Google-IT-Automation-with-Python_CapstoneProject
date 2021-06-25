@@ -13,13 +13,13 @@ DIR = "supplier-data/descriptions/"
 def process_data(data):
     report_data = []
     for item in data:
-        content = "name: {}\nweight: {} lbs".format(item["name"],item["weight"])
+        content = ["name: {}\nweight: {} lbs".format(item["name"],item["weight"])]
         report_data.append(content)
     return report_data
     
-main(argv):
+def main(argv):
     data = process_data(run.dict_files(DIR))
-    reports.generate("/tmp/processed.pdf", "Processed Update on {}". format(datetime.datetime.now().strftime("%Y-%m-%d")), data)
+    reports.generate("/tmp/processed.pdf", "Processed Update on {}". format(datetime.datetime.now().strftime("%B %d, %Y")), data)
     sender = "automation@example.com"
     receiver = "{}@example.com".format(os.environ.get('USER'))
     subject = "Upload Completed - Online Fruit Store"
