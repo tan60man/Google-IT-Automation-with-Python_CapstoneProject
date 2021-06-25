@@ -6,6 +6,6 @@ import os
 def get_filelist(dir):
     files = []
     for file in os.listdir(dir):
-        if os.path.isfile(os.path.join(dir,file)): '''Get files only'''
+        if os.path.isfile(os.path.join(dir,file)): 
             files.append(file)
         return files
