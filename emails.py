@@ -22,11 +22,11 @@ def generate(sender, receipient, subject, body, attachment_path):
         message.add_attachment(ap.read(),
                                 maintype=mime_type,
                                 subtype=mime_subtype,
-                                filename=attachment_filename
+                                filename=attachment_filename)
                                 
     return message
     
-def generate_without_attachment(sender, receipient, subject, body, attachment_path):
+def generate_without_attachment(sender, receipient, subject, body):
     message = email.message.EmailMessage()
     message["From"] = sender
     message["To"] = receipient
