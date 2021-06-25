@@ -27,7 +27,7 @@ if __name__ == "__main__":
         if split_tup[1] == ".tiff":
             im = Image.open(os.path.join(DIR,f))
             savedname = get_savedname(DIR,f)
-            convert_jpeg(im).save(savedname)
-            print("saved {}".format(savedname)
+            convert(im).save(savedname)
+            print("saved {}".format(savedname))
         
        
