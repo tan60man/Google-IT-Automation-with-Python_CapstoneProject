@@ -4,6 +4,8 @@ import psutil
 import shutil
 import socket
 import sys
+import os
+import emails
 
 def health_criteria():
     good_health = True
@@ -11,12 +13,12 @@ def health_criteria():
     if psutil.cpu_percent(1) > 80:
         good_health = False
         errors.append("Error - CPU usage is over 80% with usage at {}".format(psutil.cpu_percent(1)))
-    if psutil.virtual_memory().available > 500*1024^2:
+    if psutil.virtual_memory().available < 500*1024^2:
         good_health = False
         errors.append("Error - Available memory is less than 500MB with available memory at {}".format(psutil.virtual_memory()))
-    if shutil.disk_usage("/mnt/c/Users/65965/")[2]/ shutil.disk_usage("/mnt/c/Users/65965/")[0] < 0.2:
+    if shutil.disk_usage("/")[2]/ shutil.disk_usage("/")[0] < 0.2:
         good_health = False
-        errors.append("Error - Available disk space is less than 20% with available disk space at {}".format(shutil.disk_usage("/mnt/c/Users/65965/")[2]))
+        errors.append("Error - Available disk space is less than 20% with available disk space at {}".format(shutil.disk_usage("/")[2]))
     if socket.gethostbyname("localhost") != "127.0.0.1":
         good_health = False
         errors.append("Error - localhost cannot be resolved to 127.0.0.1")

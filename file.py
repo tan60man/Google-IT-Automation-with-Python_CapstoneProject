@@ -8,4 +8,4 @@ def get_filelist(dir):
     for file in os.listdir(dir):
         if os.path.isfile(os.path.join(dir,file)): 
             files.append(file)
-        return files
+    return files

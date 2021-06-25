@@ -5,7 +5,7 @@ import file
 import os
 
 '''To upload image file to endpoint URL'''
-URL = "http://[IP-ADDRESS]/upload/"
+URL = "http://35.192.131.92/upload/"
 DIR = "supplier-data/images/"
 
 '''Get list of files in DIR'''

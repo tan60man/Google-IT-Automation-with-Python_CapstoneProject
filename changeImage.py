@@ -22,7 +22,7 @@ if __name__ == "__main__":
     for f in file.get_filelist(DIR):
         '''To separate the file name and its extension'''
         split_tup = os.path.splitext(f)
-        #print(split_tup) 
+        print(split_tup) 
         '''To get file name with .tiff extension and do conversion and save it with .jpeg extension'''
         if split_tup[1] == ".tiff":
             im = Image.open(os.path.join(DIR,f))

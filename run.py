@@ -5,7 +5,7 @@ import requests
 import file
 
 '''To process text files in DIR to stipulatd format and post it to URL''' 
-URL = "http://[IP-ADDRESS]/fruits/?format=api"
+URL = "http://35.192.131.92/fruits/?format=api"
 DIR = "supplier-data/descriptions/"
 
 '''Extract content from files in dir and pass it to a list of dictionaries with keys (name,weight,description and image_name)'''
@@ -27,7 +27,9 @@ def dict_files(dir):
             filecontent["description"] = lines[2]
             filecontent["image_name"] = image_name
             content.close()
-        return list_dict
+        list_dict.append(filecontent)
+        filecontent = {}
+    return list_dict
 
 '''Post data to URL'''
 def post_description(url,data):
